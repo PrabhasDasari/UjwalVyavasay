@@ -14,6 +14,10 @@ class Register( models.Model ):
         max_length=6,
         validators=[RegexValidator('^[0-9]{6}$',('Invalid postal code'))])
     password = models.CharField(max_length=30)
+    prfImg = models.ImageField(default="default.jpg", upload_to="profile_pics")
+    Fimg=models.ImageField(default="default.jpg", upload_to="profile_pics")
+    PImage = models.ImageField(default="default.jpg", upload_to="profile_pics")
+    
 
     def __str__(self):
         return self.name
@@ -25,6 +29,7 @@ class Upload(models.Model):
     dTime=models.DateTimeField()
     phone=models.ForeignKey(Register,on_delete=models.CASCADE)
     PImage = models.ImageField(default="default.jpg", upload_to="profile_pics")
+   
 
     def __str__(self):
         return self.pName
